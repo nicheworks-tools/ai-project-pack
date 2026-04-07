@@ -1,18 +1,26 @@
 # Handoff Example
 
-## Goal
-Prepare the pack so another model can restart work in under five minutes.
+Goal: another model resumes quickly and correctly with minimal re-briefing.
 
-## What the next model reads
-1. `../README.md`
-2. `../AGENTS.md`
-3. `../current-truth.md`
-4. `../pending.md`
-5. `../next-actions.md`
-6. latest relevant file under `../updates/`
+## Handoff package checklist
+- `current-truth.md` is current and scoped.
+- `pending.md` contains unresolved items only.
+- `next-actions.md` contains startable tasks only.
+- latest `updates/*.md` explains last meaningful pass.
 
-## Good handoff state
-- current truth is short
-- unresolved items are still present
-- next actions are concrete
-- latest update explains the last safe-update
+## Handoff instruction to next model
+
+```txt
+You are resuming an active aiprojectpack repository.
+Read in order: README.md, AGENTS.md, current-truth.md, decisions.md, pending.md, next-actions.md, sources.md, then the latest relevant updates file.
+Start in report-only mode and return:
+- what is currently consistent
+- what is unresolved
+- highest-value bounded safe-update if approved
+- files relied on
+```
+
+## What success looks like
+- Next model does not re-open settled decisions.
+- Next model does not erase unresolved items.
+- Next model proposes one bounded improvement and names touched files before editing.

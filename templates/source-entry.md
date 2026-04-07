@@ -1,3 +1,4 @@
-- Source:
-- Type:
-- Why it matters:
+- Source: <title or file path>
+- Type: <primary | secondary | internal note>
+- Location: <url or repository path>
+- Why it matters: <claim supported or question informed>

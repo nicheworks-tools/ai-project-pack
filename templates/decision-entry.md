@@ -1,4 +1,4 @@
 ### YYYY-MM-DD — Decision title
-- Decision:
-- Reason:
-- Impact:
+- Decision: <what was decided>
+- Reason: <why it was decided>
+- Impact: <what changes because of this>

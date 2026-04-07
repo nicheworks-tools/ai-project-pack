@@ -1,14 +1,41 @@
 # aiprojectpack
 
-A single text-first repository that an AI reads first, updates carefully, and uses to keep long-running work coherent.
+`aiprojectpack` is a public, single-repository operating pack for AI-assisted development.
+It gives every model session the same durable operating surface so work can continue safely across restarts, people, and models.
 
-`aiprojectpack` is for work that breaks when context stays trapped in chat: product planning, OSS release prep, research-heavy implementation, and model-to-model handoff. It separates **current truth**, **decisions**, **pending items**, **next actions**, and **sources** into stable files so each session starts from an operating surface instead of reconstruction.
+The pack is designed for teams that want **real continuity**, not chat-history luck:
+- a current operating truth
+- explicit decisions with reasons
+- visible unresolved items
+- concrete next actions
+- source-aware claims
+- append-only update logs
 
-This is not magic memory. It is a reviewable operating repo.
+Useful immediately is the baseline; stronger over time is the result of consistent use.
 
-## Start here
+## Who this is for
 
-Read in this order:
+Use this repo when project quality drops because context keeps resetting between AI sessions.
+Typical fits:
+- product and technical planning with iterative AI support
+- research-heavy implementation where evidence quality matters
+- OSS release preparation with model handoff across sessions
+- mixed human + AI teams that need auditable changes
+
+## Repository operating model
+
+`aiprojectpack` has two core operating modes and two support modes:
+
+- **Report-only (default):** read and report; no file edits
+- **Safe-update (bounded):** small, reviewable edits only
+- **Handoff:** prepare the repo for fast transfer to another model/person
+- **Weekly review:** reduce drift and keep files coherent
+
+This is intentionally not autonomous memory or autonomous project management. It is a transparent operating surface.
+
+## Read order (every session)
+
+Read in this exact order unless the user says otherwise:
 
 1. `README.md`
 2. `AGENTS.md`
@@ -16,82 +43,87 @@ Read in this order:
 4. `decisions.md`
 5. `pending.md`
 6. `next-actions.md`
-7. `sources.md` if claims need evidence
-8. one relevant playbook under `playbooks/`
-9. one relevant adapter under `adapters/`
-10. the latest relevant log under `updates/`
+7. `sources.md` (when evidence matters)
+8. one relevant file in `playbooks/`
+9. one relevant file in `adapters/`
+10. latest relevant file in `updates/`
 
-## First run
+## First-use flow (unmistakable)
 
-1. Copy this repo.
-2. Replace the example content in the five core files with your own project state.
-3. Start with this prompt in **report-only** mode:
+### 1) First report-only pass
+
+Start with this prompt:
 
 ```txt
-Use this repository as the project operating pack.
+Use this repository as the operating pack.
 Read README.md, AGENTS.md, current-truth.md, decisions.md, pending.md, next-actions.md, and sources.md in that order.
-Work in report-only mode. Do not edit files. Return:
+Work in report-only mode. Do not edit files.
+Return:
 - what is currently consistent
 - what is unresolved
 - what should be updated first if safe-update is approved
 - which files you relied on
 ```
 
-4. If the report is bounded and sensible, move to **safe-update** with this prompt:
+Expected result: you get a bounded, reviewable status report before any repo edits.
+
+### 2) First bounded safe-update pass
+
+Only after approving the report, run:
 
 ```txt
-Apply only safe updates.
-List touched files and why each change is safe.
-Append one new file under updates/ describing the pass.
-Do not rewrite broad sections for style.
+Apply one bounded safe-update pass.
+Allowed scope:
+- tighten wording in current-truth.md without changing scope
+- append one decision in decisions.md
+- rewrite next-actions.md into concrete startable actions
+- append one dated update log in updates/
+Do not resolve unresolved claims without evidence.
+Return touched files and why each change was safe.
 ```
 
-## Modes
+Expected result: small, high-value edits with a clear audit trail.
 
-### Report-only
-Read, evaluate, and propose. Do not edit files.
+### 3) Append update log and hand off
 
-### Safe-update
-Make only small reviewable changes such as:
-- tightening `current-truth.md` without changing scope
-- appending one real decision to `decisions.md`
-- moving one resolved pending item with a logged reason
-- rewriting `next-actions.md` into smaller concrete actions
-- appending a dated file under `updates/`
+Require a dated update file in `updates/` for each meaningful safe-update or handoff pass.
+This is what enables fast restart by another model.
 
-### Handoff
-Prepare the repo so another model or person can restart work fast.
+## Core files (living operating files)
 
-### Review
-Check whether current truth, decisions, pending items, next actions, and update history still agree.
+- `current-truth.md` — what is true now and in scope
+- `decisions.md` — append-only decisions, reasons, and impact
+- `pending.md` — unresolved items that still matter
+- `next-actions.md` — concrete startable actions only
+- `sources.md` — evidence map (primary / secondary / internal notes)
+- `updates/` — append-only change log of meaningful passes
 
-## Files that matter most
+## Examples (read in this order)
 
-- `current-truth.md`: what is true now
-- `decisions.md`: what is decided and why
-- `pending.md`: what is still unresolved
-- `next-actions.md`: what to do next
-- `sources.md`: where important claims came from
-- `updates/`: what changed on each meaningful pass
+1. [`examples/full-session-walkthrough.md`](examples/full-session-walkthrough.md)
+2. [`examples/report-only-output-example.md`](examples/report-only-output-example.md)
+3. [`examples/first-safe-update-pass.md`](examples/first-safe-update-pass.md)
+4. [`examples/handoff-example.md`](examples/handoff-example.md)
 
-## Included guidance
+## Playbooks
 
-- `playbooks/planning.md`
-- `playbooks/handoff.md`
-- `playbooks/weekly-review.md`
-- `adapters/chatgpt.md`
-- `adapters/claude.md`
-- `adapters/codex.md`
-- `docs/first-run.md`
-- `docs/model-selection.md`
-- `docs/what-good-looks-like.md`
+- [`playbooks/planning.md`](playbooks/planning.md)
+- [`playbooks/research.md`](playbooks/research.md)
+- [`playbooks/handoff.md`](playbooks/handoff.md)
+- [`playbooks/weekly-review.md`](playbooks/weekly-review.md)
 
-## Worked examples
+## Model adapters
 
-- `examples/full-session-walkthrough.md` — one complete first loop
-- `examples/report-only-output-example.md` — a good report-only response shape
-- `examples/first-safe-update-pass.md` — one bounded safe-update
-- `examples/handoff-example.md` — one clean handoff
+- [`adapters/chatgpt.md`](adapters/chatgpt.md)
+- [`adapters/claude.md`](adapters/claude.md)
+- [`adapters/codex.md`](adapters/codex.md)
+
+## Supporting docs
+
+- [`docs/first-run.md`](docs/first-run.md)
+- [`docs/model-selection.md`](docs/model-selection.md)
+- [`docs/what-good-looks-like.md`](docs/what-good-looks-like.md)
+- [`docs/support-positioning.md`](docs/support-positioning.md)
 
 ## Validation
 
@@ -101,15 +133,11 @@ Run:
 python3 scripts/validate_repo.py
 ```
 
-It checks required files and common local markdown link mistakes.
+Validation checks required files, internal markdown references, known placeholder markers, and required examples/playbooks/adapters.
 
-## Non-goals
+## Public support positioning
 
-- hidden memory
-- autonomous project management
-- automatic factual truth
-- broad platform features
-- replacing review with convenience
+This repository is maintained as a practical public operating pack. Support is centered on operational clarity: coherent docs, reliable examples, safe-update discipline, and validation quality. See [`docs/support-positioning.md`](docs/support-positioning.md).
 
 ## License
 
@@ -117,4 +145,4 @@ MIT. See [LICENSE](LICENSE).
 
 ## Disclaimer
 
-Use at your own risk. Review AI output before relying on it. See [DISCLAIMER.md](DISCLAIMER.md).
+Use responsibly and review outputs before relying on them. See [DISCLAIMER.md](DISCLAIMER.md).

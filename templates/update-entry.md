@@ -1,11 +1,18 @@
-# Update — YYYY-MM-DD
+# Update — YYYY-MM-DD — short label
 
 ## Summary
 
-## Decisions added
+## Touched files
+- `path/to/file.md` — what changed
 
-## Pending changed
+## Why safe
+- explain why scope/assumptions were not changed
 
-## Next actions
+## Intentionally unresolved
+- unresolved item that remains open
+
+## Next action
+- concrete startable action
 
 ## Sources referenced
+- source path(s) or links, if applicable

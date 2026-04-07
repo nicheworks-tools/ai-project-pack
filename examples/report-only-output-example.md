@@ -1,25 +1,33 @@
 # Report-only Output Example
 
+Use this as a quality bar for report-only responses.
+
 ## Mode
-Report-only
+Report-only (no edits made)
 
 ## Files read
-- `../README.md`
-- `../AGENTS.md`
-- `../current-truth.md`
-- `../decisions.md`
-- `../pending.md`
-- `../next-actions.md`
-- `../sources.md`
+- `README.md`
+- `AGENTS.md`
+- `current-truth.md`
+- `decisions.md`
+- `pending.md`
+- `next-actions.md`
+- `sources.md`
 
 ## What is currently consistent
-- release scope is intentionally narrow
-- feature expansion is deferred
+- The repository consistently positions report-only as the default mode before edits.
+- Safe-update is defined as bounded, reviewable changes with explicit constraints.
+- Update logs under `updates/` are treated as required continuity artifacts.
 
 ## What is unresolved
-- one naming choice
-- one source verification task
+- Validation cadence and ownership are not yet decided.
+- Future validator strictness around required heading structure is still open.
+- Adapter refinements are waiting on external first-run evidence.
 
-## First safe-update candidates
-- tighten `../next-actions.md`
-- append one dated log under `../updates/`
+## What should be updated first if safe-update is approved
+1. Rewrite any non-startable action phrasing in `next-actions.md` into executable tasks.
+2. Append one dated update log capturing the safe-update outcome.
+3. Add one matching evidence note in `sources.md` when an external dry run is completed.
+
+## Files relied on
+`README.md`, `AGENTS.md`, `current-truth.md`, `decisions.md`, `pending.md`, `next-actions.md`, `sources.md`

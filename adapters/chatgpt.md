@@ -1,13 +1,26 @@
 # ChatGPT Adapter
 
-## Best when
-Ambiguity needs to shrink before edits and the work benefits from conversational iteration.
+## Best fit
+Use ChatGPT when you need to reduce ambiguity before editing files.
+
+## Operating bias
+Clarify first, edit second.
 
 ## Read first
-`../README.md`, `../AGENTS.md`, `../current-truth.md`, `../pending.md`, `../next-actions.md`
+- `README.md`
+- `AGENTS.md`
+- `current-truth.md`
+- `pending.md`
+- `next-actions.md`
 
-## Good opening response shape
-- restate current truth briefly
-- list unresolved items clearly
-- propose 2–3 bounded next directions
-- wait before editing files
+## Preferred response structure before edits
+1. Restate current truth in 3-5 bullets.
+2. Separate unresolved items from assumptions.
+3. Propose 2-3 bounded safe-update options.
+4. Ask for explicit selection of one option.
+
+## Good mini-example
+"I see two interpretations of the release goal; choose A (documentation-only tightening) or B (scope-impacting change). I recommend A."
+
+## Failure mode to avoid
+Starting edits while ambiguity remains unresolved.

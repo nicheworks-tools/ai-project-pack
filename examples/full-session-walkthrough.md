@@ -1,39 +1,75 @@
 # Full Session Walkthrough
 
-## Before the repo
-Plain chat had the release goal, unresolved naming, and one unverified benchmark claim mixed together. A new session would likely treat all three as equally stable.
+This walkthrough demonstrates immediate operational value on day one.
 
-## Initial state
-- `../current-truth.md` says the goal is the first narrow public release.
-- `../pending.md` shows one unresolved naming choice and one source verification task.
-- `../next-actions.md` is still too generic.
+## 1) Before using the repo
 
-## First prompt
+A team working on an AI-assisted release process had three recurring failures:
+- each new chat session reconstructed context differently
+- unresolved issues were accidentally treated as settled
+- “next steps” were broad suggestions instead of startable actions
+
+## 2) What plain chat would miss
+
+Without a durable repo surface, plain chat often misses:
+- whether a claim is current truth vs unresolved
+- why a previous decision was made
+- what changed in the last meaningful pass
+- which tasks are actually startable now
+
+## 3) First report-only pass
+
+### Prompt used
+
 ```txt
-Use this repository as the project operating pack.
-Read README.md, AGENTS.md, current-truth.md, decisions.md, pending.md, next-actions.md, and sources.md.
+Use this repository as the operating pack.
+Read README.md, AGENTS.md, current-truth.md, decisions.md, pending.md, next-actions.md, and sources.md in that order.
 Work in report-only mode. Do not edit files.
-Return what is currently consistent, what is unresolved, and what should be updated first if safe-update is approved.
+Return:
+- what is currently consistent
+- what is unresolved
+- what should be updated first if safe-update is approved
+- which files you relied on
 ```
 
-## Good report-only response
-- Consistent: the release is intentionally narrow and feature expansion is deferred.
-- Unresolved: naming is not final; benchmark wording still needs source verification.
-- First safe updates: tighten `next-actions.md`; add a dated update log after edits.
+### Example report-only result (abridged)
 
-## Safe-update approval
+- Consistent: report-only default, bounded safe-update model, and append-only updates are aligned across README and AGENTS.
+- Unresolved: validation cadence/ownership and stricter heading enforcement are still open.
+- First safe updates: tighten one action list and append one update log with observed friction.
+- Files relied on: README, AGENTS, current-truth, decisions, pending, next-actions, sources.
+
+## 4) Safe-update approval
+
+### Approval prompt
+
 ```txt
-Apply only safe updates.
-Tighten next-actions.md and add one dated update log.
-Do not resolve naming or promote benchmark wording into current truth.
-List touched files and why each change is safe.
+Apply one bounded safe-update pass.
+Allowed scope:
+- refine next-actions.md to make every item startable
+- append one dated update in updates/
+Do not change project scope or resolve pending items without evidence.
+Return touched files, why safe, and what remains unresolved.
 ```
 
-## Touched files
-- `../next-actions.md` — vague actions replaced with three concrete actions
-- `../updates/2026-04-07-session.md` — logged what changed and what stayed unresolved
+## 5) Touched files
 
-## Why this was safe
-- scope did not change
-- unresolved items stayed in `../pending.md`
-- no claim moved into truth without evidence
+- `next-actions.md` — replaced abstract tasks with concrete steps and observable outputs.
+- `updates/2026-04-07-*.md` — appended pass log for continuity.
+
+## 6) Update log entry (shape)
+
+A good update entry includes:
+- what changed
+- what stayed unresolved
+- why edits were safe
+- what the next model should do first
+
+## 7) Next-session restart
+
+At restart, the next model reads the standard order and latest update, then can answer quickly:
+- what is stable
+- what is still open
+- what to do next without reinterpretation
+
+That is the core value: less reconstruction, faster safe progress.

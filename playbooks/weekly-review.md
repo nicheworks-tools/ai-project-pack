@@ -1,18 +1,23 @@
 # Weekly Review Playbook
 
-## Use when
-The pack has been used across multiple sessions and you want to reduce drift.
+## When to use
+Use on a weekly cadence (or similar) to detect and correct drift across operating files.
 
-## Read first
-`../current-truth.md`, `../decisions.md`, `../pending.md`, `../next-actions.md`, recent files in `../updates/`
+## What to read first
+- `current-truth.md`
+- `decisions.md`
+- `pending.md`
+- `next-actions.md`
+- recent `updates/*.md`
 
-## Review for drift
-- current truth no longer matches recent decisions
-- pending items are stale but still matter
-- next actions describe ideas instead of actions
-- update logs stopped explaining what changed
+## Likely files to update
+- `current-truth.md` (tightening only)
+- `pending.md` (resolved/unresolved hygiene)
+- `next-actions.md`
+- `updates/<date>-weekly-review.md`
 
-## Good outcome
-- current truth is shorter and sharper
-- pending remains visible
-- next actions become smaller and more startable
+## Good mini-example
+"Remove one stale resolved pending item with a reason, then append a weekly review log documenting the move."
+
+## Bad mini-example / failure mode
+"Bulk rewrite every file for style" (creates churn and hides meaningful changes).
