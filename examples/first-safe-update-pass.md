@@ -1,40 +1,52 @@
 # First Safe-update Pass
 
-This example shows bounded edits and why they are safe.
+This example shows a bounded safe-update that improves clarity without changing scope.
 
 ## Approved scope
-- tighten `next-actions.md` so every item is concrete and startable
-- append one dated log in `updates/`
-- do not modify scope, legal posture, or unresolved claims
+- tighten `current-truth.md` wording for precision only
+- append one decision entry to `decisions.md` with reason and impact
+- rewrite `next-actions.md` so each action is immediately startable with an explicit output
+- append one dated file in `updates/`
+- do not promote unresolved claims into truth without source support
 
 ## Touched files
+- `current-truth.md`
+- `decisions.md`
 - `next-actions.md`
-- `updates/2026-04-07-safe-update-example.md`
+- `updates/2026-04-07-operational-strength-pass.md`
 
-## Why each change is safe
-- `next-actions.md`: only changed task specificity, not project direction.
-- update log file: append-only documentation of what happened and what remains unresolved.
+## Why each edit was safe
+- `current-truth.md`: retained existing concept and constraints; removed ambiguity only.
+- `decisions.md`: append-only entry that records intent, reason, and downstream effect.
+- `next-actions.md`: moved from broad phrasing to concrete, checkable tasks.
+- update log: append-only continuity artifact; no historical entries rewritten.
 
-## Intentionally unresolved
-- validation cadence/ownership
-- validator strictness decisions
-- adapter wording updates pending external evidence
+## What stayed unresolved
+- validation execution cadence and explicit owner model
+- heading-structure enforcement threshold in validator
+- adapter tuning based on external first-run evidence
 
-## Safe-update output shape
+## Appended update log
+- `updates/2026-04-07-operational-strength-pass.md`
+
+## Example safe-update response shape
 
 ```txt
 Touched files:
-- next-actions.md — made tasks startable and reviewable
-- updates/2026-04-07-safe-update-example.md — logged this pass
+- current-truth.md
+- decisions.md
+- next-actions.md
+- updates/2026-04-07-operational-strength-pass.md
 
-Why safe:
-- no scope or assumption changes
-- unresolved items stayed in pending.md
-- update history preserved via append-only log
+Why each change was safe:
+- edits stayed within approved bounded scope
+- unresolved claims were not promoted into current truth
+- decisions stayed append-only
+- update history remained append-only
 
 Intentionally unresolved:
-- [list unresolved items]
+- [list unresolved items still in pending.md]
 
-New update log:
-- updates/2026-04-07-safe-update-example.md
+Appended update log:
+- updates/2026-04-07-operational-strength-pass.md
 ```

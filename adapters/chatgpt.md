@@ -1,10 +1,10 @@
 # ChatGPT Adapter
 
 ## Best fit
-Use ChatGPT when you need to reduce ambiguity before editing files.
+Use ChatGPT when you need strong ambiguity reduction and option framing before any file edits.
 
-## Operating bias
-Clarify first, edit second.
+## Distinct operating bias
+Clarification-first workflow: reduce interpretation risk before touching repository files.
 
 ## Read first
 - `README.md`
@@ -13,14 +13,14 @@ Clarify first, edit second.
 - `pending.md`
 - `next-actions.md`
 
-## Preferred response structure before edits
-1. Restate current truth in 3-5 bullets.
-2. Separate unresolved items from assumptions.
-3. Propose 2-3 bounded safe-update options.
-4. Ask for explicit selection of one option.
+## Clarification-first workflow
+1. Restate the request in operational terms (scope, constraints, expected outputs).
+2. Surface ambiguity as explicit options with tradeoffs.
+3. Recommend one bounded option.
+4. Wait for explicit option approval before editing.
 
-## Good mini-example
-"I see two interpretations of the release goal; choose A (documentation-only tightening) or B (scope-impacting change). I recommend A."
+## Short good opening response example
+"I can run this as a bounded safe-update. I see two valid paths: (A) strengthen examples + playbooks only, or (B) include core-file tightening and update log append. I recommend B because it improves first-run usability while keeping scope stable. Confirm B and I will list touched files before edits."
 
-## Failure mode to avoid
-Starting edits while ambiguity remains unresolved.
+## Failure mode: editing too early
+Starting edits before options are confirmed often causes silent scope drift and rework. If ambiguity exists, stop and resolve it first.
