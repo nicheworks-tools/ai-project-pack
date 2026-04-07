@@ -1,4 +1,4 @@
-# ai　project　pack
+# aiprojectpack
 
 `aiprojectpack` is a public, single-repository operating pack for AI-assisted development.
 It gives every model session the same durable operating surface so work can continue safely across restarts, people, and models.
