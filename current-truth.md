@@ -1,23 +1,21 @@
 # Current Truth
 
-## Project snapshot
-`aiprojectpack` is a public single-repo operating pack for AI-assisted development.
-The repository is used as a durable operating surface to avoid session-reset drift.
-The published package includes core operating files, examples, playbooks, adapters, docs, templates, and validation.
+## Operating status (as of 2026-04-07)
+`aiprojectpack` is a public, single-repo operating pack that is actively maintained for real AI-assisted project continuity.
 
-## Near-term goal
-Ship a coherent first public version that is immediately usable by first-time users following only `README.md` + `AGENTS.md`.
+## Stable operating contract
+- Every pass starts in **report-only** mode before edits.
+- Safe-update passes are bounded, reviewable, and scope-preserving.
+- Meaningful safe-update and handoff passes append exactly one dated log in `updates/`.
+- Unresolved items remain explicit in `pending.md` until evidence or a decision resolves them.
 
-## Fixed constraints
-- Keep repository public-facing and production-credible.
-- Do not mark as draft/WIP/incomplete/internal.
-- Preserve single-repo concept, report-only default, and bounded safe-update behavior.
-- Do not shrink file structure or remove substantive sections to hide inconsistency.
+## What is now operationally strong
+- Core file roles are differentiated and cross-referenced (`current-truth`, `decisions`, `pending`, `next-actions`, `sources`).
+- Examples now show end-to-end first-loop behavior (report-only, approval, bounded edits, touched-files reporting, update-log append, restart prompt).
+- Playbooks and adapters provide model-specific and mode-specific execution guidance rather than generic templates.
 
-## Current state
-- Core structure is present and validated by `scripts/validate_repo.py`.
-- Operating guidance exists across README, AGENTS, examples, playbooks, adapters, and docs.
-- Remaining risk is operational drift if future updates skip bounded-edit discipline and update-log appends.
-
-## Immediate focus
-Keep future changes bounded and evidence-aware so the pack remains coherent as a living operating tool.
+## Guardrails that remain non-negotiable
+- Keep public-facing posture; do not label the repo as draft/internal/incomplete.
+- Preserve single-repo concept and current file structure.
+- Prefer append over rewrite for historical artifacts (`decisions.md`, `updates/`).
+- Do not promote evidence-weak claims into truth.

@@ -1,10 +1,13 @@
 # Claude Adapter
 
 ## Best fit
-Use Claude when evidence quality, synthesis, and claim hygiene are the top priority.
+Use Claude when evidence quality and claim classification are the highest priority.
 
-## Operating bias
-Separate evidence states explicitly: supported vs inferred vs unresolved.
+## Distinct operating bias
+Evidence-first structure with explicit buckets:
+- **Supported**
+- **Inferred**
+- **Unresolved**
 
 ## Read first
 - `README.md`
@@ -13,17 +16,17 @@ Separate evidence states explicitly: supported vs inferred vs unresolved.
 - `current-truth.md`
 - `pending.md`
 
-## Preferred response structure
-- **Supported:** directly supported by a recorded source.
-- **Inferred:** reasonable interpretation, not yet source-backed.
-- **Unresolved:** requires confirmation or new evidence.
-- **Source tasks:** concrete evidence-collection actions.
+## Source-task workflow
+1. Label each consequential claim as supported, inferred, or unresolved.
+2. Create source tasks for any inferred claim that might become consequential.
+3. Update `sources.md` before promoting supported claims into `current-truth.md`.
+4. Keep unresolved claims visible in `pending.md` until evidence is sufficient.
 
-## Good mini-example
-- Supported: update log append is required for meaningful edit passes.
-- Inferred: adapter wording may benefit from first-run user data.
-- Unresolved: validation cadence ownership.
-- Source task: capture one external dry-run report and log in `updates/` + `sources.md`.
+## Short realistic output example
+- Supported: update logs are append-only continuity artifacts required after meaningful passes.
+- Inferred: current adapter guidance could improve once external first-run evidence is collected.
+- Unresolved: validator cadence owner is still undefined.
+- Source task: run one external dry run, append evidence in `updates/`, and link it under secondary sources.
 
-## Failure mode to avoid
-Merging inferred claims into supported claims without explicit evidence.
+## Failure mode: blending inference into support
+Do not treat plausible interpretation as evidence. If a claim lacks traceable support, keep it inferred or unresolved.

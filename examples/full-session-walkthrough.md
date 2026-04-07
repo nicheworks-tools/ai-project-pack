@@ -1,75 +1,112 @@
 # Full Session Walkthrough
 
-This walkthrough demonstrates immediate operational value on day one.
+This is a realistic first loop that demonstrates why `aiprojectpack` prevents restart friction.
 
-## 1) Before using the repo
+## 1) What was broken before using the repo
 
-A team working on an AI-assisted release process had three recurring failures:
-- each new chat session reconstructed context differently
-- unresolved issues were accidentally treated as settled
-- “next steps” were broad suggestions instead of startable actions
+A small product team was using plain chat threads for release planning. After four sessions, they had the same recurring failures:
+- each model restart re-interpreted goals differently
+- one unresolved question about validation ownership kept getting treated as settled
+- "next steps" became generic advice instead of executable tasks
+- no durable record explained why prior wording decisions were made
 
-## 2) What plain chat would miss
+## 2) What plain chat would likely miss
 
-Without a durable repo surface, plain chat often misses:
-- whether a claim is current truth vs unresolved
-- why a previous decision was made
-- what changed in the last meaningful pass
-- which tasks are actually startable now
+Without a durable operating surface, plain chat would likely miss:
+- whether a statement belongs in `current-truth.md` or still in `pending.md`
+- whether a proposed change is a bounded safe-update vs a scope shift
+- the latest operational pass details that should be appended in `updates/`
+- restart instructions for the next model
 
-## 3) First report-only pass
-
-### Prompt used
+## 3) Exact first report-only prompt
 
 ```txt
-Use this repository as the operating pack.
-Read README.md, AGENTS.md, current-truth.md, decisions.md, pending.md, next-actions.md, and sources.md in that order.
+Use this repository as the operating pack for this pass.
+Read in order: README.md, AGENTS.md, current-truth.md, decisions.md, pending.md, next-actions.md, and sources.md.
 Work in report-only mode. Do not edit files.
-Return:
+Return exactly:
 - what is currently consistent
 - what is unresolved
 - what should be updated first if safe-update is approved
 - which files you relied on
 ```
 
-### Example report-only result (abridged)
-
-- Consistent: report-only default, bounded safe-update model, and append-only updates are aligned across README and AGENTS.
-- Unresolved: validation cadence/ownership and stricter heading enforcement are still open.
-- First safe updates: tighten one action list and append one update log with observed friction.
-- Files relied on: README, AGENTS, current-truth, decisions, pending, next-actions, sources.
-
-## 4) Safe-update approval
-
-### Approval prompt
+## 4) Realistic report-only output
 
 ```txt
-Apply one bounded safe-update pass.
-Allowed scope:
-- refine next-actions.md to make every item startable
-- append one dated update in updates/
-Do not change project scope or resolve pending items without evidence.
-Return touched files, why safe, and what remains unresolved.
+What is currently consistent:
+- Report-only is the required first step before edits.
+- Safe-update is defined as bounded and reviewable.
+- Update logs are append-only and required for meaningful edit passes.
+
+What is unresolved:
+- Validation cadence and owner assignment are still open.
+- Validator strictness on heading structure is undecided.
+- Adapter refinements are waiting on external first-run evidence.
+
+What should be updated first if safe-update is approved:
+1) Rewrite next-actions.md items into actions with explicit outputs.
+2) Append one dated update log documenting this pass.
+3) Add a matching sources.md note that links evidence for any newly supported claim.
+
+Which files were relied on:
+README.md, AGENTS.md, current-truth.md, decisions.md, pending.md, next-actions.md, sources.md
 ```
 
-## 5) Touched files
+## 5) Explicit safe-update approval prompt
 
-- `next-actions.md` — replaced abstract tasks with concrete steps and observable outputs.
-- `updates/2026-04-07-*.md` — appended pass log for continuity.
+```txt
+Approved: run one bounded safe-update pass now.
+Allowed edits:
+- tighten current-truth.md wording for operational sharpness only
+- append one new decision with reason + impact in decisions.md
+- rewrite next-actions.md into fully startable tasks
+- append one dated update file in updates/
+Do not change scope, do not promote unresolved claims without evidence, and keep pending unresolved items visible.
+Return touched files, why each edit was safe, what stayed unresolved, and the appended update log filename.
+```
 
-## 6) Update log entry (shape)
+## 6) Explicit touched-files report (example)
 
-A good update entry includes:
-- what changed
-- what stayed unresolved
-- why edits were safe
-- what the next model should do first
+```txt
+Touched files:
+- current-truth.md
+- decisions.md
+- next-actions.md
+- updates/2026-04-07-operational-strength-pass.md
 
-## 7) Next-session restart
+Why each edit was safe:
+- current-truth.md: sharpened existing truths without adding unsupported claims.
+- decisions.md: appended one decision entry; no prior entries rewritten.
+- next-actions.md: converted abstract items into executable tasks with outputs.
+- updates/2026-04-07-operational-strength-pass.md: append-only log entry for continuity.
+```
 
-At restart, the next model reads the standard order and latest update, then can answer quickly:
-- what is stable
-- what is still open
-- what to do next without reinterpretation
+## 7) Explicit update log append
 
-That is the core value: less reconstruction, faster safe progress.
+A strong appended update log should contain:
+- summary of what changed in this pass
+- touched files list
+- why edits were safe and bounded
+- intentionally unresolved items
+- first action for the next session
+
+## 8) Next-session restart prompt
+
+```txt
+Resume from this repo, not from chat memory.
+Read in order: README.md, AGENTS.md, current-truth.md, decisions.md, pending.md, next-actions.md, sources.md, then updates/2026-04-07-operational-strength-pass.md.
+Start in report-only mode.
+Return:
+- what is currently consistent
+- what is unresolved
+- the highest-value safe-update if approved
+- files relied on
+```
+
+## 9) What became easier because the repo existed
+
+- restart quality improved because the next model could execute immediately without re-discovery
+- unresolved items stayed visible instead of being overwritten by optimism
+- safe-update scope stayed bounded and reviewable
+- the update log made cross-session continuity explicit and auditable

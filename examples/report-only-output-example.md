@@ -1,9 +1,9 @@
 # Report-only Output Example
 
-Use this as a quality bar for report-only responses.
+Use this as the quality bar for a report-only response.
 
 ## Mode
-Report-only (no edits made)
+Report-only (no edits performed)
 
 ## Files read
 - `README.md`
@@ -13,21 +13,32 @@ Report-only (no edits made)
 - `pending.md`
 - `next-actions.md`
 - `sources.md`
+- latest relevant `updates/*.md`
 
-## What is currently consistent
-- The repository consistently positions report-only as the default mode before edits.
-- Safe-update is defined as bounded, reviewable changes with explicit constraints.
-- Update logs under `updates/` are treated as required continuity artifacts.
+## Example output
 
-## What is unresolved
-- Validation cadence and ownership are not yet decided.
-- Future validator strictness around required heading structure is still open.
-- Adapter refinements are waiting on external first-run evidence.
+```txt
+What is currently consistent:
+- Repository posture is public-facing and not marked as internal/incomplete.
+- Operating model remains stable: report-only first, bounded safe-update second.
+- Append-only update logging is required for meaningful safe-update and handoff passes.
+- Core file roles are distinct (truth, decisions, unresolved, next actions, sources).
 
-## What should be updated first if safe-update is approved
-1. Rewrite any non-startable action phrasing in `next-actions.md` into executable tasks.
-2. Append one dated update log capturing the safe-update outcome.
-3. Add one matching evidence note in `sources.md` when an external dry run is completed.
+What is unresolved:
+- No documented owner/cadence yet for routine validator execution.
+- No decision yet on whether validation should enforce heading-structure minimums.
+- Adapter wording improvements still depend on external first-run evidence.
 
-## Files relied on
-`README.md`, `AGENTS.md`, `current-truth.md`, `decisions.md`, `pending.md`, `next-actions.md`, `sources.md`
+What should be updated first if safe-update is approved:
+1) Tighten next-actions.md so each item has an observable output artifact.
+2) Append one dated update log documenting exactly what changed and what remained unresolved.
+3) Add or update one sources.md entry that records evidence quality for any promoted claim.
+
+Which files were relied on:
+README.md; AGENTS.md; current-truth.md; decisions.md; pending.md; next-actions.md; sources.md; updates/000-initial.md
+```
+
+## Why this output is operationally credible
+- It distinguishes stable operating facts from unresolved decisions.
+- It proposes bounded edits before touching files.
+- It cites exactly which repository artifacts informed the report.

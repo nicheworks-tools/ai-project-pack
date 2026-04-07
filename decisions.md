@@ -16,3 +16,8 @@ Append-only decision ledger. Add new entries at the bottom.
 - Decision: strengthen content quality and coherence in-place without reducing file structure or README scope.
 - Reason: users need a shippable operating pack, not a trimmed template.
 - Impact: repository remains substantial, practical, and immediately useful on first run.
+
+### 2026-04-07 — Raise examples/playbooks/adapters to operational-quality baseline
+- Decision: strengthen priority examples, playbooks, and adapters with concrete prompts, outputs, failure modes, and touched-files discipline.
+- Reason: first-time users need immediately executable patterns, not instructional abstraction.
+- Impact: first-run trust improves and model-to-model restart becomes faster and less error-prone.
