@@ -1,19 +1,35 @@
 # Codex Adapter
 
-## Best when
-The repo itself is part of the work and small reviewable edits matter.
+## Best fit
+Use Codex when repository edits must be precise, bounded, and reviewable.
+
+## Operating bias
+Repo-edit discipline with explicit touched-files reporting.
 
 ## Read first
-`../README.md`, `../AGENTS.md`, `../current-truth.md`, `../pending.md`, `../next-actions.md`
+- `README.md`
+- `AGENTS.md`
+- `current-truth.md`
+- `decisions.md`
+- `pending.md`
+- `next-actions.md`
 
-## Preferred edit pattern
-- start in report-only
-- touch fewer files
-- append before rewrite
-- log every meaningful pass under `../updates/`
+## Required edit workflow
+1. Perform report-only analysis first.
+2. Confirm bounded safe-update scope.
+3. Edit minimum necessary files.
+4. Append one dated update log under `updates/`.
+5. Return touched files + why each change was safe + what remained unresolved.
 
-## Good touched-files report
+## Good mini-example
 Touched files:
-- `../current-truth.md` — tightened release focus without changing scope
-- `../next-actions.md` — replaced vague actions with concrete bounded steps
-- `../updates/2026-04-07-session.md` — logged the safe-update pass
+- `next-actions.md` — converted vague items into startable actions.
+- `updates/2026-04-07-safe-update.md` — appended pass summary.
+
+Why safe:
+- no scope or assumption change
+- unresolved items preserved
+- append-only history maintained
+
+## Failure mode to avoid
+Large multi-file rewrites that hide the purpose and safety of the update.

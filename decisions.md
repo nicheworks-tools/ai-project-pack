@@ -1,17 +1,18 @@
 # Decisions
 
-## Example entries
+Append-only decision ledger. Add new entries at the bottom.
 
-### 2026-04-07 — Keep the first public release narrow
-- Decision: do not add new release features before the first public tag.
-- Reason: wider scope increases doc churn and makes release blockers harder to close.
-- Impact: backlog items stay out of the current release pass.
+### 2026-04-07 — Keep report-only as default operating mode
+- Decision: every new session must begin with a report-only pass before any file edits.
+- Reason: this prevents accidental scope drift and creates a review checkpoint.
+- Impact: edits become explicit second-step actions rather than silent first-step changes.
 
-### 2026-04-07 — Use report-only before file edits
-- Decision: every new model starts in report-only mode.
-- Reason: it prevents quiet drift before the operating surface is reviewed.
-- Impact: safe-update becomes a second step, not the default.
+### 2026-04-07 — Require update-log append for meaningful edit passes
+- Decision: each safe-update or handoff pass must append a dated file under `updates/`.
+- Reason: session continuity depends on visible historical context, not hidden chat history.
+- Impact: model handoff and restart quality improve; auditability is preserved.
 
-## New entries
-Add one decision per entry.
-Use date, decision, reason, and impact.
+### 2026-04-07 — Preserve public-facing scope while improving operational density
+- Decision: strengthen content quality and coherence in-place without reducing file structure or README scope.
+- Reason: users need a shippable operating pack, not a trimmed template.
+- Impact: repository remains substantial, practical, and immediately useful on first run.

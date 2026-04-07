@@ -1,19 +1,23 @@
 # Current Truth
 
-## Example
-ClipForge is a small OSS clip-processing tool preparing for its first public release. The current goal is to ship a narrow release that proves the core workflow, not to expand features. Release blockers are documentation clarity, one unresolved naming choice, and one source verification for benchmark wording.
+## Project snapshot
+`aiprojectpack` is a public single-repo operating pack for AI-assisted development.
+The repository is used as a durable operating surface to avoid session-reset drift.
+The published package includes core operating files, examples, playbooks, adapters, docs, templates, and validation.
 
-## Project
-Describe what the project is right now in 2–5 lines.
-
-## Goal
-State the current near-term goal.
+## Near-term goal
+Ship a coherent first public version that is immediately usable by first-time users following only `README.md` + `AGENTS.md`.
 
 ## Fixed constraints
-List constraints that are truly fixed right now.
+- Keep repository public-facing and production-credible.
+- Do not mark as draft/WIP/incomplete/internal.
+- Preserve single-repo concept, report-only default, and bounded safe-update behavior.
+- Do not shrink file structure or remove substantive sections to hide inconsistency.
 
 ## Current state
-Describe the current working state briefly.
+- Core structure is present and validated by `scripts/validate_repo.py`.
+- Operating guidance exists across README, AGENTS, examples, playbooks, adapters, and docs.
+- Remaining risk is operational drift if future updates skip bounded-edit discipline and update-log appends.
 
 ## Immediate focus
-Name the one area that should receive attention next.
+Keep future changes bounded and evidence-aware so the pack remains coherent as a living operating tool.

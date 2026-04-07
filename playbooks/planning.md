@@ -1,22 +1,21 @@
 # Planning Playbook
 
-## Use when
-The project direction is too broad, the current truth is unstable, or next actions are vague.
+## When to use
+Use when direction is blurry, next actions are vague, or scope pressure is creeping in.
 
-## Read first
-`../current-truth.md`, `../pending.md`, `../next-actions.md`
-
-## Good planning pass
-- narrows the immediate goal
-- keeps unresolved items unresolved
-- turns `Now` into concrete actions
-
-## Bad planning pass
-- rewrites the project vision for style
-- promotes guesses into truth
-- produces bigger wishlists instead of smaller next actions
+## What to read first
+- `current-truth.md`
+- `pending.md`
+- `next-actions.md`
+- latest relevant file in `updates/`
 
 ## Likely files to update
-- `../current-truth.md`
-- `../next-actions.md`
-- sometimes `../pending.md`
+- `next-actions.md`
+- `current-truth.md` (wording only, if needed)
+- `updates/<date>-*.md`
+
+## Good mini-example
+"Replace `improve onboarding docs` with `draft 5-bullet first-run checklist in docs/first-run.md and log remaining gaps`."
+
+## Bad mini-example / failure mode
+"Rewrite all planning docs for consistency" (broad, non-bounded, and hard to review).

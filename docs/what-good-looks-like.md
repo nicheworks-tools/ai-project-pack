@@ -1,10 +1,43 @@
 # What Good Looks Like
 
-## Good current truth
-Short, current, bounded, and free of unresolved debate.
+Concrete quality bar snippets for operating files.
 
-## Good next action
-Concrete, startable today, and small enough to review.
+## Good `current-truth.md` snippet
 
-## Good source-backed move
-A claim moves into truth only after a source is recorded in `../sources.md`.
+```md
+## Near-term goal
+Ship coherent first public release with report-only default and bounded safe-update behavior preserved.
+```
+
+Why good: scoped, current, and operational.
+
+## Good `pending.md` snippet
+
+```md
+## Open
+- Decide validation cadence owner (maintainer vs rotating reviewer).
+```
+
+Why good: unresolved, specific, and decision-oriented.
+
+## Good `next-actions.md` snippet
+
+```md
+## Now
+- Run one external first-run dry run and log friction points in updates/2026-04-07-dry-run.md.
+```
+
+Why good: immediately startable and observable.
+
+## Good safe-update return snippet
+
+```txt
+Touched files:
+- next-actions.md — made tasks startable
+- updates/2026-04-07-safe-update.md — logged pass
+
+Intentionally unresolved:
+- validation cadence ownership
+```
+
+Why good: clear scope, traceability, and unresolved-state integrity.

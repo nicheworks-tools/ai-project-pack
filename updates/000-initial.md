@@ -1,17 +1,30 @@
-# Update — 2026-04-07
+# Update — 2026-04-07 — initial operating baseline
 
 ## Summary
-Initialized the pack structure and set the first operating surface.
+Established the public operating baseline for `aiprojectpack` with coherent core files, examples, playbooks, adapters, docs, templates, and validation.
 
-## Decisions added
-- use report-only before edits
+## Touched files
+- `README.md`
+- `AGENTS.md`
+- `current-truth.md`
+- `decisions.md`
+- `pending.md`
+- `next-actions.md`
+- `sources.md`
+- `examples/*`
+- `playbooks/*`
+- `adapters/*`
+- `docs/*`
+- `templates/*`
+- `scripts/validate_repo.py`
 
-## Pending changed
-- naming and source verification remain unresolved
+## Why safe
+Changes improved clarity and internal consistency without changing the repository concept, public-facing posture, or bounded operating model.
 
-## Next actions
-- replace example content with project-specific state
-- run the first report-only pass
+## Intentionally unresolved
+- validation cadence ownership
+- future validator strictness on section heading enforcement
+- adapter tuning pending external first-run evidence
 
-## Sources referenced
-- internal starting assumptions only
+## Next action
+Run a real first-time-user dry run and append a dated follow-up update with observed friction.

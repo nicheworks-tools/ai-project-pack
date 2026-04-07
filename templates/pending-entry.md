@@ -1,3 +1,3 @@
-- Item:
-- Why unresolved:
-- What would unblock it:
+- Item: <unresolved issue>
+- Why unresolved: <what is missing>
+- What would unblock it: <evidence/decision/input needed>
